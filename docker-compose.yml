@@ -1,0 +1,16 @@
+
+services:
+  web:
+    build: .
+    container_name: automax_web
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app
+      - sqlite_data:/app/data
+      - media_data:/app/media
+
+volumes:
+  sqlite_data:
+  media_data:
